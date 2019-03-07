@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class SoundTriggeredOnEnter : MonoBehaviour
 {
+    public AudioClip Sound1;
     private AudioSource audioSource;
+
 
     // Start is called before the first frame update
     void Start()
@@ -12,9 +14,15 @@ public class SoundTriggeredOnEnter : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider otherObject)
     {
-        CharacterController player = other.GetComponent<CharacterController>();
-        audioSource.Play();
+        
+        if (otherObject.gameObject.tag == "Player")
+        {
+            audioSource.PlayOneShot(Sound1, 1F);
+        }
+
+        //CharacterController player = other.GetComponent<CharacterController>();
+        //audioSource.Play();
     }
 }
