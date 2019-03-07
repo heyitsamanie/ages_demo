@@ -2,10 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof (AudioSource))]
 public class InteractiveObject : MonoBehaviour, IInteractive
 {
-    public void InteractWith()
+    [SerializeField]
+    protected string displayText = nameof (InteractiveObject);
+
+    public string DisplayText => displayText;
+    private AudioSource audioSource;
+
+    private void Awake()
     {
+        audioSource = GetComponent<AudioSource>();   
+    }
+
+    public virtual void InteractWith()
+    {
+        try
+        {
+            audioSource.Play();
+        }
+        catch (System.Exception)
+        {
+            throw new System.Exception("Missing AudioSource: Interactive object requires an AudioSource component");
+        }
         Debug.Log($"Player just interacted with {gameObject.name}");
     }
 }
