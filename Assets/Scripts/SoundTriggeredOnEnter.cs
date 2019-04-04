@@ -6,7 +6,6 @@ public class SoundTriggeredOnEnter : MonoBehaviour
 {
     public AudioClip Sound1;
     private AudioSource audioSource;
-    private bool hasPlayed = true;
 
     void Start()
     {
@@ -19,7 +18,6 @@ public class SoundTriggeredOnEnter : MonoBehaviour
         if (otherObject.gameObject.tag == "Player")
         {
             audioSource.PlayOneShot(Sound1, 1F);
-
         }
     }
 
