@@ -6,9 +6,8 @@ public class SoundTriggeredOnEnter : MonoBehaviour
 {
     public AudioClip Sound1;
     private AudioSource audioSource;
+    private bool hasPlayed = true;
 
-
-    // Start is called before the first frame update
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -16,13 +15,12 @@ public class SoundTriggeredOnEnter : MonoBehaviour
 
     private void OnTriggerEnter(Collider otherObject)
     {
-        
+
         if (otherObject.gameObject.tag == "Player")
         {
             audioSource.PlayOneShot(Sound1, 1F);
-        }
 
-        //CharacterController player = other.GetComponent<CharacterController>();
-        //audioSource.Play();
+        }
     }
+
 }
