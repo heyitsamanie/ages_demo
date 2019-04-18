@@ -47,6 +47,7 @@ public class Door : InteractiveObject
     private Animator animator;
     private bool isOpen = false;
     private bool isLocked;
+    private bool isSliding = false;
     private int shouldOpenAnimParameter = Animator.StringToHash(nameof(shouldOpenAnimParameter));
 
     /// <summary>
@@ -84,6 +85,8 @@ public class Door : InteractiveObject
                 animator.SetBool(shouldOpenAnimParameter, true);
                 displayText = string.Empty;
                 isOpen = true;
+                isSliding = true;
+
                 UnlockDoor();
             }
             base.InteractWith(); // This plays a sound effect!
