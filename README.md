@@ -24,5 +24,4 @@ Keycard Pickup: https://freesound.org/people/sophiehall3535/sounds/248037/
 
 FONT!
 ---------------------------------------------------------------------------------------------------------
-Menu Font: Electric Highway Sign (Unity)
-All Other Text: https://fonts.google.com/specimen/Space+Mono
+All Text Font: https://fonts.google.com/specimen/Space+Mono
