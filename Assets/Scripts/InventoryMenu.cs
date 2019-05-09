@@ -21,6 +21,9 @@ public class InventoryMenu : MonoBehaviour
     [SerializeField]
     private Text descriptionAreaText;
 
+    [SerializeField]
+    private AudioClip menuSound;
+
     private static InventoryMenu instance;
     private CanvasGroup canvasGroup;
     private FirstPersonController firstPersonController;
@@ -43,6 +46,7 @@ public class InventoryMenu : MonoBehaviour
     public void ExitMenuButtonClicked()
     {
         HideMenu();
+        audioSource.Play();
     }
 
     /// <summary>

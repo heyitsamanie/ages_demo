@@ -8,6 +8,14 @@ public class TitleMenu : MonoBehaviour
     [SerializeField]
     private string gameSceneName;
 
+    [SerializeField]
+    private AudioClip clip;
+
+    public void PlayAudio()
+    {
+       
+    }
+
     public void LoadGameScene()
     {
         SceneManager.LoadScene(gameSceneName);
