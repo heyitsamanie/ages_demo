@@ -17,12 +17,16 @@ public class InventoryObject : InteractiveObject
     [SerializeField]
     private Sprite icon;
 
+    [SerializeField]
+    private AudioClip pickUpAudio;
+
     public Sprite Icon => icon;
     public string ObjectName => objectName;
     public string Description => description;
 
     private new Renderer renderer;
     private new Collider collider;
+    
 
     private void Start()
     {
@@ -45,6 +49,7 @@ public class InventoryObject : InteractiveObject
     public override void InteractWith()
     {
         base.InteractWith();
+        audioSource.clip = pickUpAudio;
         PlayerInventory.InventoryObjects.Add(this);
         InventoryMenu.Instance.AddItemToMenu(this);
         renderer.enabled = false;
